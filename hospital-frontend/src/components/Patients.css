@@ -1,0 +1,213 @@
+
+/* Patient Profile Cards */
+
+.patient-profile-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 22px;
+    margin: 25px 0;
+}
+
+.patient-profile-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.07);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.patient-profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.13);
+}
+
+.patient-profile-image {
+    height: 200px;
+    background: #eaf2fa;
+    overflow: hidden;
+}
+
+.patient-profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.patient-profile-info {
+    padding: 20px;
+}
+
+.patient-profile-info h3 {
+    margin: 0 0 8px;
+    color: #12345a;
+    font-size: 19px;
+}
+
+.patient-profile-info > p {
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.patient-profile-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.patient-profile-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 18px 0;
+    color: #475569;
+    font-size: 12px;
+}
+
+.patient-active {
+    color: #15803d;
+    background: #dcfce7;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.patient-inactive {
+    color: #dc2626;
+    background: #fee2e2;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.patient-profile-view {
+    width: 100%;
+    padding: 11px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.patient-profile-view:hover {
+    background: #1d4ed8;
+}
+
+@media (max-width: 1000px) {
+    .patient-profile-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .patient-profile-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Patient Details Center Modal */
+
+.patient-modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(15, 23, 42, 0.65) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 99999 !important;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.patient-modal {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 650px !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    margin: auto !important;
+    padding: 28px !important;
+    background: #ffffff !important;
+    border-radius: 18px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25) !important;
+    animation: patientModalOpen 0.25s ease-out;
+}
+
+.patient-modal h3 {
+    color: #12345a;
+    font-size: 23px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 15px;
+}
+
+.patient-modal .patient-information p {
+    padding: 11px 0;
+    border-bottom: 1px solid #f1f5f9;
+    color: #475569;
+    overflow-wrap: anywhere;
+}
+
+.patient-modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.patient-modal-actions button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.patient-modal-actions button:last-child {
+    background: #64748b;
+}
+
+.patient-modal-actions button:hover {
+    opacity: 0.88;
+}
+
+@keyframes patientModalOpen {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 600px) {
+    .patient-modal-overlay {
+        padding: 12px;
+    }
+
+    .patient-modal {
+        padding: 20px !important;
+        max-height: 94vh !important;
+    }
+
+    .patient-modal-actions {
+        flex-direction: column;
+    }
+}
